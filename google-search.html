@@ -1,0 +1,95 @@
+`<!DOCTYPE html>
+<html>
+<head>
+	<title>Entity Resolution-NLP</title>
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="web-search.css" rel="stylesheet" type="text/css"/>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
+<style>
+.btn-unfill{transition: all 0.8s cubic-bezier(0.25, 1.01, 0.54, 1.29);margin:5px 5px;display:inline-block;padding:5px 5px;color:#000000;border:solid 2px #000000;border-radius:6px;text-transform:uppercase;font-weight:bold;letter-spacing:3px;}
+.btn-unfill:hover, .btn-unfill:focus{color:#fff;border-color:#000000;background-color:#000000;}
+.btn-unfill:hover {
+  filter: url('#filter-goo-4');
+}
+</style>
+</head>
+<body >
+<nav class="navbar navbar-dark bg-light rounded-pill" style="background-color:#F9FBE7;">
+  <span class="navbar-brand mb-0 h1">Web Entity Search</span>
+</nav>
+<div class="container">
+	<div class="col-md-12 ct-content" id="searchForm" style="margin-left:10px;">
+                        
+	
+			<div class="row">
+				<div class="col-md-3">
+					  
+                     <label for="colFormLabelSm" class=" col-form-label col-form-label-lg">First Name</label>
+					<input id="firstName" name="firstName" class="search-page-search" placeholder="First Name" value="">
+			</div>
+							
+			
+			
+				<div class="col-md-3">
+					<label for="colFormLabelSm" class=" col-form-label col-form-label-lg">Last Name</label>
+					<input id="secondName" name="secondName" class="search-page-search" placeholder="Second Name" value="">
+				</div>	
+
+			
+		
+			
+				<div class="col-md-3">
+					<label for="colFormLabelSm" class=" col-form-label col-form-label-lg">Organisation</label>
+					<input id="organisation" name="Organisation" class="search-page-search" placeholder="Organisation" value="">
+				</div>				
+			
+            
+			
+				<div class="col-md-3">
+					<label for="colFormLabelSm" class=" col-form-label col-form-label-lg">Location</label>
+					<input id="location" name="Location" class="search-page-search" placeholder="Location" value="">
+				</div>				
+			</div>
+			<br>
+			<div class="row mt-3">
+				<div class="col-md-12 btn-unfill " style="width:30%;margin-left:350px;">
+
+					<input id="submit" type="submit" class="search-page-search-submit" value="Search">
+				</div>
+			</div>
+			<br>
+			<div class="pager_controls">
+			<p>
+				<button id="lnkPrev"  class="btn-unfill" title="Display previous result page" style="display:none;">Previous</button> <button  id="lnkNext"  class="btn-unfill" title="Display next result page" style="display:none;">Next</button>
+			</p>
+		</div>
+		<div id="searchResult"></div>
+		<div id="output"></div>
+		
+		
+		<script type="text/javascript">
+			var mGoogleApiKey = "AIzaSyBMlTMk7hcSR5OM2LE4lkOdMRuuzp4NG9w";
+			var mGoogleCustomSearchKey = "003316574838883214918:h72g-_0jsvi";
+		</script> 
+		<script src="entity-search-script.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$('#submit').click(function(){
+				
+				let searchQuery = `"${$('#firstName').val()}" "${$('#secondName').val()}" "${$('#organisation').val()}" "${$('#location').val()}"`;
+			    if ($('#firstName').val() == " ") 
+			    {
+                 windows.alert("Name must be filled out");
+                 }
+				Search(searchQuery,0);
+			})
+			
+		</script>
+						
+    </div>
+</div>	
+
+</body>
+</html>
